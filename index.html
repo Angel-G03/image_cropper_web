@@ -7,46 +7,53 @@
         <title>Angelic Image Cropper</title>
     </head>
     <body>
-        <div class="center">
-            <h1>Image Cropper</h1>
-            <h3>By Gabriel Angel</h3>
-        </div>
-        <hr/>
-        <div class="center">
-            <!--Informatics INFORMER specs are default entries for personal use-->
-            <label for="top">Top:</label>
-            <input id="top" value="0"/><br/><br/>
-            <label for="bottom">Bottom:</label>
-            <input id="bottom" value="750"/><br/><br/>
-            <label for="left">Left:</label>
-            <input id="left" value="0"/><br/><br/>
-            <label for="right">Right:</label>
-            <input id="right" value="1500"/><br/><br/>
-        </div>
-        <div class="center">
-            <button id="upload">Upload File(s)</button>
-            <button id="crop">Crop!</button><br/><br/>
-            <input type="radio" id="overwrite" name="saveType" value="overwrite">
-            <label for="overwrite">Overwrite File(s)</label><br/><br/>
-            <input type="radio" id="newSave" name="saveType" value="newSave">
-            <label for="newSave">Save New File(s)</label>
-        </div>
-        <hr/>
-        <div class="center">
-            <h2>Tutorial</h2>
-            <p>
-                Click the upload button to select any number of JPG or PNG files.
-                After pressing the select button, these files will be loaded into the program for cropping.
-                Next, manually enter the amount of pixles you would like shaved off from each side of the image, and... <i>voila</i>!
-                The Image Cropper will automagically crop all of the selected images simultaneously with the same dimensions.
-                No more needless, repetitive cropping!
-                But don't forget to select the radio button for either overwiting existing files, or saving new ones.
-            </p>
-            <p>
-                This may not be a useful tool for you, but it is for me, and that is why I made it.
-                If you want user-friendly, drag-n-drop cropping, there are a plethora of other free online options for you to find with any search engine.
-                This tool is specifically designed to crop many images at once to the exact same dimensions.
-            </p>
-        </div>
+        <header>
+            <div class="center">
+                <h1>Image Cropper</h1>
+                <h3>By Gabriel Angel</h3>
+            </div>
+            <hr/>
+        </header>
+        <main>
+            <div class="center">
+                <!--Informatics INFORMER specs are default entries for personal use-->
+                <label for="top">Top:</label>
+                <input id="top" value="0"/><br/><br/>
+                <label for="bottom">Bottom:</label>
+                <input id="bottom" value="750"/><br/><br/>
+                <label for="left">Left:</label>
+                <input id="left" value="0"/><br/><br/>
+                <label for="right">Right:</label>
+                <input id="right" value="1500"/><br/><br/>
+            </div>
+            <div class="center">
+                <button id="uploadButton" onclick="upload(document.getElementById('upload').click())">Upload File(s)</button>
+                <input type="file" id="upload" name="upload" style="display: none;">
+                <button id="crop" onclick="crop()">Crop!</button><br/><br/>
+                <input type="radio" id="overwrite" name="saveType" value="overwrite">
+                <label for="overwrite">Overwrite File(s)</label><br/><br/>
+                <input type="radio" id="newSave" name="saveType" value="newSave">
+                <label for="newSave">Save New File(s)</label>
+            </div>
+        </main>
+        <footer>
+            <hr/>
+            <div class="center">
+                <h2>Tutorial</h2>
+                <p>
+                    Click the upload button to select any number of JPG or PNG files.
+                    After pressing the select button, these files will be loaded into the program for cropping.
+                    Next, manually enter the amount of pixles you would like shaved off from each side of the image, and... <i>voila</i>!
+                    The Image Cropper will automagically crop all of the selected images simultaneously with the same dimensions.
+                    No more needless, repetitive cropping!
+                    But don't forget to select the radio button for either overwiting existing files, or saving new ones.
+                </p>
+                <p>
+                    This may not be a useful tool for you, but it is for me, and that is why I made it.
+                    If you want user-friendly, drag-n-drop cropping, there are a plethora of other free online options for you to find with any search engine.
+                    This tool is specifically designed to crop many images at once to the exact same dimensions.
+                </p>
+            </div>
+        </footer>
     </body>
 </html>
