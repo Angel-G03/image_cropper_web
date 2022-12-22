@@ -13,7 +13,11 @@ function getSaveMode() {
 
 function crop() {
     var file = document.getElementById("upload").value;
-    //file = file.substring(27); // Trims string to be: filename.ext
+    console.log(file);
+    file = file.substring(27); // Trims string to be: filename.ext
+    console.log(file);
+    file = file.substring(28); // Trims string to be: filename.ext
+    console.log(file);
     var height = document.getElementById("height").value;
     var width = document.getElementById("width").value;
     var saveMode = getSaveMode()
