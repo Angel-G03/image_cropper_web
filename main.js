@@ -1,8 +1,3 @@
-// This function isn't really neccesary but will stay for now
-function upload() {
-    console.log("Uploading files...");
-}
-
 function getSaveMode() {
     var saveMode = document.getElementsByName('saveType');
     for (var mode of saveMode) {
