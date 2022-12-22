@@ -9,12 +9,10 @@ function getSaveMode() {
 }
 
 function crop() {
-    //Change for new width and height rather than t, b, l, r
     var file = document.getElementById("upload").value;
-    var top = document.getElementById("top").value;
-    var bottom = document.getElementById("bottom").value;
-    var left = document.getElementById("left").value;
-    var right = document.getElementById("right").value;
+    file = file.substring(12); // Trims string to be: filename.ext
+    var height = document.getElementById("height").value;
+    var width = document.getElementById("width").value;
     var saveMode = getSaveMode()
 
     // Get file source with string formatting
