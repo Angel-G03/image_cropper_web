@@ -25,13 +25,13 @@
                 <button id="uploadButton" onclick="upload(document.getElementById('upload').click())">Upload File(s)</button>
                 <input type="file" id="upload" name="upload" style="display: none;"/>
                 <button id="crop" onclick="crop()">Crop!</button><br/><br/>
-                <button class="download">Download</button> <!--Remove this button-->
+                <button class="download">Download</button><br/><br/>
                 <input type="radio" id="overwrite" name="saveType" value="overwrite"/>
                 <label for="overwrite">Overwrite File(s)</label><br/><br/>
                 <input type="radio" id="newSave" name="saveType" value="newSave" checked/>
-                <label for="newSave">Save New File(s)</label>
+                <label for="newSave">Save New File(s)</label><br/><br/>
             </div>
-            <div>
+            <div class="center">
                 <canvas id="canvas"></canvas>
             </div>
         </main>
