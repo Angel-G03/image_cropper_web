@@ -1,13 +1,3 @@
-function getSaveMode() {
-    var saveMode = document.getElementsByName('saveType');
-    for (var mode of saveMode) {
-        if (mode.checked) {
-            return mode.value
-        }
-    }
-    return null;
-}
-
 // Currently only works for jpg images
 // Does not work due to DOMException
 
@@ -16,7 +6,6 @@ function crop() {
     file = file.substring(12);
     var height = document.getElementById("height").value;
     var width = document.getElementById("width").value;
-    var saveMode = getSaveMode()
 
     const originalImage = new Image();
     originalImage.src = file;
