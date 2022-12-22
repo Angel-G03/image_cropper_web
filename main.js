@@ -19,7 +19,6 @@ function crop() {
     var saveMode = getSaveMode()
 
     const originalImage = new Image();
-    originalImage.crossOrigin = "anonymous"; //fixed someone else's DOM error but not this one
     originalImage.src = file;
 
     const canvas = document.getElementById('canvas');
