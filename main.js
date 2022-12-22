@@ -20,5 +20,27 @@ function crop() {
     var left = document.getElementById("left").value;
     var right = document.getElementById("right").value;
     var saveMode = getSaveMode()
-    console.log("Cropping " + file + " by " + saveMode);
+
+    const originalImage = new Image();
+    originalImage.src = 'test.jpeg';
+
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+
+    originalImage.addEventListener("load", 
+    function() {
+        canvas.width = right;
+        canvas.height = bottom;
+        context.drawImage(originalImage, 0, 0, right, bottom, 0, 0, right, bottom);
+    });
+
+    const downloadButton = document.querySelector("button.download");
+    downloadButton.addEventListener('click',
+    function() {
+        var tempLink = document.createElement('a');
+        var fileName = 'test-cropped.jpg';
+        tempLink.download = fileName;
+        tempLink.href = document.getElementById('canvas').toDataURL("image/jpeg", 0.9);
+        tempLink.click();
+    });
 }
