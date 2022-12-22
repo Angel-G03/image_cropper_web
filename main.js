@@ -35,12 +35,7 @@ function crop() {
     downloadButton.addEventListener('click',
     function() {
         var tempLink = document.createElement('a');
-        if (saveMode == "overwrite") {
-            var fileName = file;
-        }
-        else {
-            var fileName = 'cropped.jpg';
-        }
+        var fileName = 'cropped.jpg';
         tempLink.download = fileName;
         tempLink.href = document.getElementById('canvas').toDataURL("image/jpeg", 0.9);
         tempLink.click();
