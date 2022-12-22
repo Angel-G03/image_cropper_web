@@ -14,13 +14,12 @@ function getSaveMode() {
 function crop() {
     var file = document.getElementById("upload").value;
     file = file.substring(12);
-    console.log(file);
     var height = document.getElementById("height").value;
     var width = document.getElementById("width").value;
     var saveMode = getSaveMode()
 
     const originalImage = new Image();
-    //originalImage.crossOrigin = "anonymous"; fixed someone else's DOM error but not this one
+    originalImage.crossOrigin = "anonymous"; //fixed someone else's DOM error but not this one
     originalImage.src = file;
 
     const canvas = document.getElementById('canvas');
