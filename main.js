@@ -14,6 +14,7 @@ function getSaveMode() {
 }
 
 function crop() {
+    //Change for new width and height rather than t, b, l, r
     var file = document.getElementById("upload").value;
     var top = document.getElementById("top").value;
     var bottom = document.getElementById("bottom").value;
@@ -21,12 +22,14 @@ function crop() {
     var right = document.getElementById("right").value;
     var saveMode = getSaveMode()
 
+    // Get file source with string formatting
     const originalImage = new Image();
     originalImage.src = 'test.jpeg';
 
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');
 
+    // I dont't need to draw to canvas unless I may want to have an intermittent phase where you can crop several times and see result before downloading
     originalImage.addEventListener("load", 
     function() {
         canvas.width = right;
@@ -34,6 +37,7 @@ function crop() {
         context.drawImage(originalImage, 0, 0, right, bottom, 0, 0, right, bottom);
     });
 
+    //Just download after pressing crop, unless we want a testing type of thing like stated before
     const downloadButton = document.querySelector("button.download");
     downloadButton.addEventListener('click',
     function() {
