@@ -8,6 +8,9 @@ function getSaveMode() {
     return null;
 }
 
+// Currently only works for jpg images
+// Does not work due to DOMException
+
 function crop() {
     var file = document.getElementById("upload").value;
     file = file.substring(12); // Trims string to be: filename.ext
@@ -15,27 +18,30 @@ function crop() {
     var width = document.getElementById("width").value;
     var saveMode = getSaveMode()
 
-    // Get file source with string formatting
     const originalImage = new Image();
-    originalImage.src = 'test.jpeg';
+    //originalImage.crossOrigin = "anonymous"; fixed someone else's DOM error but not this one
+    originalImage.src = file;
 
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');
 
-    // I dont't need to draw to canvas unless I may want to have an intermittent phase where you can crop several times and see result before downloading
     originalImage.addEventListener("load", 
     function() {
-        canvas.width = right;
-        canvas.height = bottom;
-        context.drawImage(originalImage, 0, 0, right, bottom, 0, 0, right, bottom);
+        canvas.width = width;
+        canvas.height = height;
+        context.drawImage(originalImage, 0, 0, width, height, 0, 0, width, height);
     });
 
-    //Just download after pressing crop, unless we want a testing type of thing like stated before
     const downloadButton = document.querySelector("button.download");
     downloadButton.addEventListener('click',
     function() {
         var tempLink = document.createElement('a');
-        var fileName = 'test-cropped.jpg';
+        if (saveMode == "overwrite") {
+            var fileName = file;
+        }
+        else {
+            var fileName = 'cropped.jpg';
+        }
         tempLink.download = fileName;
         tempLink.href = document.getElementById('canvas').toDataURL("image/jpeg", 0.9);
         tempLink.click();
